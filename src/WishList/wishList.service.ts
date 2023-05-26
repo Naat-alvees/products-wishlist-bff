@@ -1,7 +1,7 @@
 import { ShortProduct, ShortProductResponse } from 'src/Product/product.type'
 import { WishlistErrorMessages } from './wishList.type'
 
-const wishlistDB: ShortProduct[] = []
+let wishlistDB: ShortProduct[] = []
 
 const WishlistService = {
   async getWishlist(): Promise<ShortProductResponse> {
@@ -30,6 +30,12 @@ const WishlistService = {
 
     wishlistDB.splice(index, 1)
     console.log('Produto removido da lista de desejos')
+  },
+
+  async removeAllProductFromWishlist(): Promise<void> {
+    console.log('Removendo todos os produto da lista de desejos')
+    wishlistDB = []
+    console.log('Todos os produto foram removido da lista de desejos')
   }
 }
 
